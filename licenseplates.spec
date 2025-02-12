@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['test.py'],
+    ['licenseplates.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='test',
+    name='licenseplates',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
