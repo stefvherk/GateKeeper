@@ -13,4 +13,3 @@ def decide():
 
 greeting = decide()
 print(greeting + "! Welkom bij Fonteyn Vakantieparken")
-#test 2
