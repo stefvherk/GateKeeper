@@ -1,1 +1,1 @@
-#check
+print("Welkom bij Fonteyn Vakantieparken")
