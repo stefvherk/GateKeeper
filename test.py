@@ -1,18 +1,8 @@
 from datetime import datetime
 
 def decide():
-    current_time = datetime.now().time()
-    if current_time >= datetime.strptime("07:00", "%H:%M").time() and current_time < datetime.strptime("12:00", "%H:%M").time():
-        return "Goedemorgen"
-    elif current_time >= datetime.strptime("12:00", "%H:%M").time() and current_time < datetime.strptime("18:00", "%H:%M").time():
-        return "Goedemiddag"
-    elif current_time >= datetime.strptime("18:00", "%H:%M").time() and current_time < datetime.strptime("23:00", "%H:%M").time():
-        return "Goedenavond"
-    else:
-        return None
+    h = datetime.now().hour
+    return ("Goedemorgen" if 7 <= h < 12 else "Goedemiddag" if 12 <= h < 18 else "Goedenavond" if 18 <= h < 23 else None)
 
 greeting = decide()
-if greeting:
-    print(greeting + "! Welkom bij Fonteyn Vakantieparken")
-else:
-    print("Sorry, de parkeerplaats is s'nachts gesloten")
+print(f"{greeting}! Welkom bij Fonteyn Vakantieparken" if greeting else "Sorry, de parkeerplaats is s'nachts gesloten")
