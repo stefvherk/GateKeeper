@@ -1,5 +1,4 @@
 from datetime import datetime
-import random
 
 license_plate = input("Voer uw kenteken in: ")
 license_plates = [
