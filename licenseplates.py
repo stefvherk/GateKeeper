@@ -1,6 +1,5 @@
 from datetime import datetime
 
-license_plate = input("Voer uw kenteken in: ")
 license_plates = [
     "AB-12-CD", "EF-34-GH", "IJ-56-KL", "MN-78-OP", "QR-90-ST",
     "UV-12-WX", "YZ-34-AB", "CD-56-EF", "GH-78-IJ", "KL-90-MN",
@@ -17,11 +16,16 @@ def decide():
         "Goedemiddag" if 12 <= h < 18 else
         "Goedenavond" if 18 <= h < 23 else
         None
-    )
-
-greeting = decide() if license_plate in license_plates else None
-print(
-    f"{greeting}! Welkom bij Fonteyn Vakantieparken" if greeting else
-    "Sorry, de parkeerplaats is s'nachts gesloten" if greeting is None else
-    "U heeft helaas geen toegang tot het parkeerterrein"
 )
+
+while True:
+    license_plate = input("Voer uw kenteken in: ")
+    if license_plate.lower() == 'exit':
+        break
+
+    greeting = decide() if license_plate in license_plates else None
+    print(
+        f"{greeting}! Welkom bij Fonteyn Vakantieparken" if greeting else
+        "Sorry, de parkeerplaats is s'nachts gesloten" if greeting is None else
+        "U heeft helaas geen toegang tot het parkeerterrein"
+    )
