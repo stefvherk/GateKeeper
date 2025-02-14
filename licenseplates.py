@@ -12,10 +12,16 @@ license_plates = [
 
 def decide():
     h = datetime.now().hour
-    return ("Goedemorgen" if 7 <= h < 12 else "Goedemiddag" if 12 <= h < 18 else "Goedenavond" if 18 <= h < 23 else None)
+    return (
+        "Goedemorgen" if 7 <= h < 12 else
+        "Goedemiddag" if 12 <= h < 18 else
+        "Goedenavond" if 18 <= h < 23 else
+        None
+    )
 
-if license_plate in license_plates:
-    greeting = decide()
-    print(f"{greeting}! Welkom bij Fonteyn Vakantieparken" if greeting else "Sorry, de parkeerplaats is s'nachts gesloten")
-else:
-    print("U heeft helaas geen toegang tot het parkeerterrein")
+greeting = decide() if license_plate in license_plates else None
+print(
+    f"{greeting}! Welkom bij Fonteyn Vakantieparken" if greeting else
+    "Sorry, de parkeerplaats is s'nachts gesloten" if greeting is None else
+    "U heeft helaas geen toegang tot het parkeerterrein"
+)
