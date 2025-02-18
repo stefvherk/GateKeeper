@@ -16,7 +16,7 @@ def decide():
         "Goedemiddag" if 12 <= h < 18 else
         "Goedenavond" if 18 <= h < 23 else
         None
-)
+    )
 
 while True:
     license_plate = input("Voer uw kenteken in: ")
