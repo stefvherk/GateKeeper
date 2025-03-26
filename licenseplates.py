@@ -21,14 +21,17 @@ def decide():
 
 def is_valid_license_plate(plate):
     # Validate license plate format: XX-99-XX
-    return bool(re.match(r"^[A-Z]{2}-\d{2}-[A-Z]{2}$", plate))
+    return bool(re.match(r"^[A-Z0-9]{2}-[A-Z0-9]{2}-[A-Z0-9]{2}$", plate))
 
 while True:
     license_plate = input("Voer uw kenteken in: ").upper()
     if license_plate == 'EXIT':
         break
     if not is_valid_license_plate(license_plate):
-        print("Ongeldig kentekenformaat. Gebruik het formaat XX-99-XX.")
+        print("Ongeldig kentekenformaat. Gebruik het formaat XX-XX-XX.")
         continue
-    greeting = decide() if license_plate in license_plates else None
-    print(f"{greeting}! Welkom bij Fonteyn Vakantieparken" if greeting else "Sorry, de parkeerplaats is s'nachts gesloten" if greeting is None else "U heeft helaas geen toegang tot het parkeerterrein")
+    if license_plate not in license_plates:
+        print("Kenteken niet herkend. U heeft helaas geen toegang tot het parkeerterrein.")
+        continue
+    greeting = decide()
+    print(f"{greeting}! Welkom bij Fonteyn Vakantieparken" if greeting else "Sorry, de parkeerplaats is s'nachts gesloten")
